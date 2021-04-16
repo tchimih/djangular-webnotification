@@ -58,7 +58,7 @@ Your prompt should change to indicate that you are now operating within a Python
 * Now that your virtualenv is up and running, we will clone the current repository inside the virtualenv :
 
 ```sh
-git clone https://git.telerys.fr/deadbeef/PushAPIWebNotifPOC.git
+git clone https://github.com/tchimih/djangular-webnotification.git
 ```
 
 * Once cloned, we will install all of the dependencies as follow :
