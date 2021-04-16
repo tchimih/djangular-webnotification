@@ -1,0 +1,50 @@
+<div class="container" style="padding: 20px;">
+    <div class="row">
+        <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+            <mat-card fxFlex="75">
+
+                <mat-toolbar color="primary">Qualification d'appels</mat-toolbar>
+                
+                <p></p>
+
+                <form class="example-form" fxLayoutAlign="stretch" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="qualifyCall()"> 
+
+                    <mat-form-field appearance="fill" *ngIf="!isParamSet()" >
+                        <mat-label>Séléctionner qualification</mat-label>
+                        <mat-select formControlName="notificationId">
+                            <mat-option *ngFor="let notif of NotificationList" value={{notif.NotificationId}}>De {{ notif.NotificationSrcExt }} vers {{ notif.NotificationDestExt }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" *ngIf="isParamSet()" >
+                        <mat-label>Séléctionner qualification</mat-label>
+                        <mat-select formControlName="notificationId">
+                            <mat-option value="{{id}}">De {{ src }} vers {{ dst }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Type de qualification</mat-label>
+                        <mat-select formControlName="qualificationType">
+                            <mat-option value="1"> Centre Assistance Réservation </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label >Question initiale</mat-label>
+                        <mat-select formControlName="qualificationSubType">
+                            <mat-option *ngFor="let choice of ChoicesList.choices" value="{{choice}}">{{choice}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Commentaires</mat-label>
+                        <textarea matInput formControlName="qualificationComment"></textarea>
+                    </mat-form-field>
+
+                    <button mat-raised-button type="submit" color="primary">Envoyer</button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
