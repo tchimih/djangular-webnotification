@@ -62,7 +62,7 @@ export class NavComponent {
       if (event.data.length < 3) {
         this.oldUnreadNotifCount = this.unreadNotifCount;
         this.unreadNotifCount = event.data;
-        if (this.unreadNotifCount !== this.oldUnreadNotifCount){
+        if (this.unreadNotifCount > this.oldUnreadNotifCount){
           this.openSnackBarSucess("🔔 Nouvelle notification !", "Consulter")
         }
       }

@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from .forms import WebPushForm, SubscriptionForm
 
-# @api_view(['POST'])
+@api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 @csrf_exempt
 def save_info(request):
