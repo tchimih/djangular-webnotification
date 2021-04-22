@@ -30,7 +30,6 @@ export class NavComponent {
   ngOnInit(): void {
     this.getUnreadNotificationCount();
     this.setsock();
-    this.start1();
   }
 
   constructor(private breakpointObserver: BreakpointObserver, 
@@ -50,11 +49,12 @@ export class NavComponent {
   }
   
   setsock() {
-    console.log('starting socket connection ...')
+    console.log('starting socket connection ...');
     this.socket = new WebSocket(this.URL + '/stocks/');
 
     this.socket.onopen = () => {
       console.log('WebSockets connection created.');
+      this.start1();
     };
 
     this.socket.onmessage = (event) => {
@@ -91,6 +91,7 @@ export class NavComponent {
   }
 
   logout(){
+    this.stop1();
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }

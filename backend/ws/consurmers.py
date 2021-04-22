@@ -28,11 +28,11 @@ def ws_message(message):
         periodic()
     else:
         t.cancel()
-   # message.reply_channel.send({'text':'200'})
+    message.reply_channel.send({'text':'200'})
 
 def ws_connect(message):
     Group('stocks').add(message.reply_channel)
-    Group('stocks').send({'text':'connected'})
+    Group('stocks').send({'text':'hello world'})
 
 
 
